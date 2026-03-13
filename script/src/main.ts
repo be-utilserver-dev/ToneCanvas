@@ -166,7 +166,7 @@ function setupEvents() {
          selectedPoint = null;
          GhostPoint = null;
       }
-      if (e.key === "Delete" || e.key === "Backspace") {
+      if (e.key === "Delete") {
          if (selectedPoint) {
             points = points.filter(p => p !== selectedPoint);
             selectedPoint = null;
