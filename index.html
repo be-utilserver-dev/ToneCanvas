@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToneCanvas</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="editor-section">
+            <canvas id="editer" width="600" height="400"></canvas>
+            <div class="controls">
+                <button type="button" id="playButton">Play Waveform</button>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="preview-container">
+                <div class="label">WAVE PREVIEW</div>
+                <div class="preview-box">
+                    <canvas id="preview" width="200" height="100"></canvas>
+                </div>
+            </div>
+
+            <div id="property">
+					<div class="prop-header">
+      				<span id="prop-close">X</span>
+   				</div>
+					<label for="type">Point Type:</label>
+					<select id="type">
+						<option value="point">Point</option>
+						<option value="control">Control</option>
+					</select>
+					<label for="x">X:</label>
+					<input type="text" id="x" placeholder="X coordinate or formula">
+					<label for="y">Y:</label>
+					<input type="text" id="y" placeholder="Y coordinate or formula">
+            </div>
+        </div>
+    </div>
+
+    <script src="script/dist/main.js"></script>
+	 <script src="script/dist/render.js"></script>
+	 <script src="script/dist/audio.js"></script>
+	 <script src="script/dist/math_utils.js"></script>
+</body>
+</html>

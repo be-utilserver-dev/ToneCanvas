@@ -1,0 +1,190 @@
+/* index.css */
+
+/* 1. 기본 스타일 및 배경 */
+body {
+   background: #1a1a1a;
+   color: white;
+   margin: 20px;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+   line-height: 1.5;
+}
+
+/* 2. 메인 레이아웃 (Flexbox) */
+.main-container {
+   display: flex;
+   gap: 20px;
+   align-items: flex-start;
+   max-width: 1000px;
+   margin: 0 auto;
+}
+
+/* 3. 에디터 섹션 (좌측) */
+.editor-section {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+#editer {
+   border: 1px solid #444;
+   border-radius: 8px;
+   background: #000;
+   cursor: crosshair;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 4. 사이드바 및 속성창 (우측) */
+.sidebar {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.prop-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+/* PROPERTY 글자: 두께를 얇게(400~500) 조정 */
+.prop-header::before {
+   content: "PROPERTY";
+   font-size: 11px;
+   font-weight: 500; /* 기존 800에서 축소 */
+   color: #ffffff70;
+   letter-spacing: 1.5px;
+}
+
+/* 닫기 버튼: 빨간 둥근 네모 + 흰색 X */
+#prop-close {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 18px;
+   height: 18px;
+   background: #ff4444;
+   color: white;
+   font-size: 10px;
+   font-weight: bold;
+   border-radius: 4px; /* 둥근 네모 */
+   cursor: pointer;
+   transition: background 0.2s;
+}
+
+#property {
+   flex-shrink: 0;
+   width: 240px;
+   padding: 20px;
+   background: #2a2a2a;
+   border-radius: 8px;
+   border: 1px solid #444;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   
+   /* 초기 상태: 숨김 (opacity 0) */
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 0.2s ease, transform 0.2s ease;
+   transform: translateX(10px);
+}
+
+#property.active {
+   opacity: 1;
+   pointer-events: auto;
+   transform: translateX(0);
+}
+
+/* 5. 속성창 내부 요소 (Label, Input, Select) */
+#property label {
+   font-size: 11px;
+   color: #888;
+   font-weight: bold;
+   margin-bottom: -5px;
+}
+
+#property input, 
+#property select {
+   background: #1a1a1a;
+   border: 1px solid #444;
+   color: #ccc;
+   padding: 8px;
+   border-radius: 4px;
+   font-size: 13px;
+   outline: none;
+   transition: border-color 0.2s;
+}
+
+#property input:focus, 
+#property select:focus {
+   border-color: #888;
+}
+
+/* 크롬/사파리에서 숫자 입력창 화살표 제거 */
+#property input::-webkit-outer-spin-button,
+#property input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+/* 6. 미리보기 상자 */
+.preview-container {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.preview-container .label {
+   font-size: 11px;
+   font-weight: bold;
+   color: #888;
+   letter-spacing: 1px;
+}
+
+.preview-box {
+   border: 1px solid #444;
+   border-radius: 8px;
+   overflow: hidden;
+   background: #000;
+}
+
+#preview {
+   width: 100%;
+   height: 120px;
+   display: block;
+}
+
+/* 7. 하단 컨트롤 버튼 */
+.controls {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}
+
+#playButton {
+   padding: 12px 30px;
+   background: #00ff88;
+   color: #000;
+   border: none;
+   border-radius: 6px;
+   font-weight: bold;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+#playButton:hover {
+   background: #00cc6e;
+   box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+#playButton:active {
+   transform: translateY(2px);
+}
+
+#pointCount {
+   color: #00ff88;
+   font-size: 13px;
+   font-weight: bold;
+}
